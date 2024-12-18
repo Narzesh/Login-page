@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <div class="contain">
+        <button id="btn" type="button">Login</button>
+        <dialog class="dailog">
+          <form action="">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" />
+            <label for="pass">Password</label>
+            <input type="text" name="password" id="pass" />
+            <button>Submit</button>
+            <button id="close">Close</button>
+          </form>
+        </dialog>
+      </div>
+    </main>
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          $(".dailog").toggle();
+        });
+        $("#close").click(function () {
+          $(".dailog").hide();
+        });
+
+        $("#close").keydown(function (a) {
+          a.preventDefault();
+          if (a.keyCode == 13) {
+            $(".dailog").hide();
+          }
+          if (a.keyCode == 9) {
+            $("#email").focus();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
